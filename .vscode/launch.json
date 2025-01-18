@@ -1,0 +1,239 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "P0208",
+            "request": "launch",
+            "mainClass": "P0208",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P0210",
+            "request": "launch",
+            "mainClass": "P0210",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P0308",
+            "request": "launch",
+            "mainClass": "P0308",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P0310",
+            "request": "launch",
+            "mainClass": "P0310",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P0410",
+            "request": "launch",
+            "mainClass": "P0410",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P0510",
+            "request": "launch",
+            "mainClass": "P0510",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P0708",
+            "request": "launch",
+            "mainClass": "P0708",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P0808",
+            "request": "launch",
+            "mainClass": "P0808",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P1108",
+            "request": "launch",
+            "mainClass": "P1108",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P1210",
+            "request": "launch",
+            "mainClass": "P1210",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P1408",
+            "request": "launch",
+            "mainClass": "P1408",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P1906",
+            "request": "launch",
+            "mainClass": "P1906",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P1908",
+            "request": "launch",
+            "mainClass": "P1908",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P2006",
+            "request": "launch",
+            "mainClass": "P2006",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P2106",
+            "request": "launch",
+            "mainClass": "P2106",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P2107",
+            "request": "launch",
+            "mainClass": "P2107",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P2206",
+            "request": "launch",
+            "mainClass": "P2206",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P2306",
+            "request": "launch",
+            "mainClass": "P2306",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P2408",
+            "request": "launch",
+            "mainClass": "P2408",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P2608",
+            "request": "launch",
+            "mainClass": "P2608",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P2706",
+            "request": "launch",
+            "mainClass": "P2706",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P2707",
+            "request": "launch",
+            "mainClass": "P2707",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "SlidingWindowAndTwoPointer1",
+            "request": "launch",
+            "mainClass": "P2712.SlidingWindowAndTwoPointer1",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P2808",
+            "request": "launch",
+            "mainClass": "P2808",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P2907",
+            "request": "launch",
+            "mainClass": "P2907",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P3005",
+            "request": "launch",
+            "mainClass": "P3005",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P3007",
+            "request": "launch",
+            "mainClass": "P3007",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P3008",
+            "request": "launch",
+            "mainClass": "P3008",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P3009",
+            "request": "launch",
+            "mainClass": "P3009",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P3105",
+            "request": "launch",
+            "mainClass": "P3105",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P3107",
+            "request": "launch",
+            "mainClass": "P3107",
+            "projectName": "DSA_834330d2"
+        },
+        {
+            "type": "java",
+            "name": "P3108",
+            "request": "launch",
+            "mainClass": "P3108",
+            "projectName": "DSA_834330d2"
+        }
+    ]
+}
