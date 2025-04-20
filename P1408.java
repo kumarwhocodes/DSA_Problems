@@ -5,7 +5,7 @@ public class P1408 {
         int n = arr.length; 
         int sum = 0;
         for (int i = 0; i < n; i++) {
-            sum += Math.ceil((double)(arr[i]) / (double)(div));
+            sum += (int) Math.ceil((double)(arr[i]) / (double)(div));
         }
         return sum;
     }

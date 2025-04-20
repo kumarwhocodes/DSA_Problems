@@ -82,14 +82,14 @@ public class P0208 {
             int ans = hash[num];
             return ans;
         } catch (Exception e) {
-            return -1;
+            return 0;
         }
        
     }
 
     public static void main(String[] args) {
         int[] arr = { 1, 3, 4, 4, 4, 4, 5, 6 };
-        System.out.println(countOccurenceBrute(arr, 9));
+        System.out.println(countOccurenceBrute(arr, 7));
 
     }
 }

@@ -2,14 +2,12 @@ import java.util.Arrays;
 
 public class P2707 {
     public static void main(String[] args) {
-        int[] arr = { 55, 66, 33, 11, 77 };
+        int[] arr = {55, 66, 33, 11, 77};
         rotateRight(arr, 3);
         System.out.println(Arrays.toString(arr));
-        findSecondLargest(arr, 5);
-        findSecondLargest(arr, 5);
     }
-
-    // find largest element in array
+    
+    // find the largest element in array
     static int findLargestInArray(int[] arr) {
         if (arr.length > 0) {
             int largest = arr[0];
@@ -22,9 +20,8 @@ public class P2707 {
         } else
             return -1;
     }
-
+    
     // second largest element without sorting -- optimal
-    @SuppressWarnings("unused")
     static private int findSecondSmallest(int[] arr, int n) {
         if (n < 2) {
             return -1;
@@ -42,7 +39,7 @@ public class P2707 {
         }
         return second_small;
     }
-
+    
     static private int findSecondLargest(int[] arr, int n) {
         if (n < 2)
             return -1;
@@ -53,44 +50,54 @@ public class P2707 {
             if (arr[i] > large) {
                 second_large = large;
                 large = arr[i];
-            }
-
-            else if (arr[i] > second_large && arr[i] != large) {
+            } else if (arr[i] > second_large && arr[i] != large) {
                 second_large = arr[i];
             }
         }
         return second_large;
     }
-
+    
     // check if the array is sorted
     static boolean checkArraySort(int[] arr) {
         boolean isArraySorted = true;
         for (int i = 0; i < arr.length - 1; i++) {
             if (arr[i] > arr[i + 1]) {
                 isArraySorted = false;
+                break;
             }
         }
         return isArraySorted;
     }
-
-    // rotate array to left by one
+    
     static void swap(int[] arr, int a, int b) {
         int temp = arr[a];
         arr[a] = arr[b];
         arr[b] = temp;
     }
-
+    
+    // rotate array to left by one
     static void rotateLeftOne(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
             swap(arr, i, i - 1);
         }
     }
-
+    
     // rotate right by n elements - PATTA???
     static void rotateRight(int[] arr, int n) {
-        for (int i = arr.length ; i > n  ; i--) {
-            swap(arr, i, i - 1);
+        int len = arr.length;
+        n = n % len;
+        
+        for (int i = 0; i < n; i++) {
+            rightShiftByOne(arr);
         }
     }
-
+    
+    static void rightShiftByOne(int[] arr) {
+        int last = arr[arr.length - 1]; // Store last element
+        for (int i = arr.length - 1; i > 0; i--) {
+            arr[i] = arr[i - 1]; // Shift elements to the right
+        }
+        arr[0] = last; // Place the last element at the start
+    }
+    
 }

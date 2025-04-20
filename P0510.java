@@ -9,8 +9,8 @@ public class P0510 {
         head.next.next.next = new Node(arr[3]);
         head.next.next.next.next = new Node(arr[4]);
         head.next.next.next.next.next = new Node(arr[5]);
-
-        head = removeMiddleNode(head);
+        P2608.printLL(head);
+        head = removeLastNthNode(head,3);
         P2608.printLL(head);
     }
 

@@ -32,6 +32,6 @@ public class P0808 {
     }
 
     public static void main(String[] args) {
-        System.out.println(nthRoot(27,3));
+        System.out.println(nthRoot(28,3));
     }
 }

@@ -23,6 +23,7 @@ public class P2408 {
 
     //Find row with maximum number of 1's -- OPTIMAL
     public static int lowerBound(int[] arr, int n, int x) {
+        //finding 1st occurrence of 1 in a row in this function
         int low = 0, high = n - 1;
         int ans = n;
 

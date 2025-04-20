@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class P2907 {
 
@@ -25,7 +26,6 @@ public class P2907 {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == 0) {
                 count=count+1;
-                continue;
             } else {
                 ans[j] = arr[i];
                 j++;
@@ -64,9 +64,7 @@ public class P2907 {
     }
 
     public static void swap(int[] arr, int i, int j) {
-        int temp = arr[i];
-        arr[i] = arr[j];
-        arr[j] = temp;
+        P2707.swap(arr, i, j);
     }
 
     //linear search
@@ -85,6 +83,7 @@ public class P2907 {
 
     public static void main(String[] args) {
         int[] arr = { 1, 0, 5, 3, 6, 0, 0, 0, 9, 7, 6 };
-        System.out.println(searchIndex(arr, 3));
+//        int[] arr1 = moveZeroToEndBrute(arr);
+        System.out.println(searchIndex(arr, 1));
     }
 }

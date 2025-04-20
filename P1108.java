@@ -27,6 +27,7 @@ public class P1108 {
         while (low<high){
             int mid = (low+high)/2;
             int calculatedHours = calculateHours(arr,mid);
+            System.out.println("CALCULATED: " + calculatedHours);
             if(calculatedHours<=h){
                 ans = calculatedHours;
                 low = mid+1;

@@ -6,7 +6,7 @@ public class P3007 {
     // union of two arrays using hashset - O( (m+n)log(m+n) )
     static ArrayList<Integer> unionOfTwoArray(int[] arr1, int[] arr2) {
         HashSet<Integer> hash = new HashSet<>();
-        ArrayList<Integer> Union = new ArrayList<>();
+        ArrayList<Integer> union = new ArrayList<>();
         for (int i = 0; i < arr1.length; i++) {
             hash.add(arr1[i]);
         }
@@ -14,9 +14,9 @@ public class P3007 {
             hash.add(arr2[j]);
         }
         for (int it : hash) {
-            Union.add(it);
+            union.add(it);
         }
-        return Union;
+        return union;
     }
 
     // union of two sorted arrays - O ( m+n )
@@ -26,22 +26,22 @@ public class P3007 {
         int j = 0;
         while (i < a.length && j < b.length) {
             if (a[i] <= b[j]) {
-                if (union.size() == 0 || union.get(union.size() - 1) != a[i])
+                if (union.isEmpty() || union.getLast() != a[i])
                     union.add(a[i]);
                 i++;
             } else {
-                if (union.size() == 0 || union.get(union.size() - 1) != b[j])
+                if (union.isEmpty() || union.getLast() != b[j])
                     union.add(b[j]);
                 j++;
             }
         }
         while (i < a.length) {
-            if (union.get(union.size() - 1) != a[i])
+            if (union.getLast() != a[i])
                 union.add(a[i]);
             i++;
         }
         while (j < b.length) {
-            if (union.get(union.size() - 1) != b[j])
+            if (union.getLast() != b[j])
                 union.add(b[j]);
             j++;
         }
@@ -78,7 +78,7 @@ public class P3007 {
     }
 
     // count maximum number of 1's
-    static int countMaximumOnes(int[] arr) {
+    static int countMaximumConsecutiveOnes(int[] arr) {
         int count = 0;// changes after each iteration
         int max = 0;// to keep track of maximum
         int i = 0;
@@ -130,8 +130,8 @@ public class P3007 {
     }
 
     public static void main(String[] args) {
-        int[] a = { 1, 1, 0, 3, 1, 1, 1, 1, 0, 0 };
-        int num = findUniqueNumberInArrayOpt(a);
+        int[] a = { 1, 7, 0, 3, 1, 1, 1, 1, 0 };
+        int num = findUniqueNumberInArrayBetter(a);
         System.out.println(num);
     }
 }

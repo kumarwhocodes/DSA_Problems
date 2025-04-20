@@ -195,7 +195,7 @@ public class P2808 {
         head = insertAnywhere(head, 0, 1);
         head = insertAnywhere(head, 1, 2);
         head = insertAnywhere(head, 2, 3);
-        head = insertAnywhere(head, 3, 4);
+        head = insertAnywhere(head, 1, 4);
 
         printLL(head);
     }

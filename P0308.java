@@ -1,16 +1,16 @@
 public class P0308 {
-
+    
     // Search element in a rotated sorted array
     public static int searchInRotatedSortedArray(int[] arr, int num) {
         int start = 0;
         int end = arr.length - 1;
-
+        
         while (start <= end) {
             int mid = (start + end) / 2;
-            // if mid points to the target
+            // if mid-points to the target
             if (arr[mid] == num)
                 return mid;
-
+            
             // if left part is sorted
             if (arr[start] <= arr[mid]) {
                 if (arr[start] <= num && num <= arr[mid]) {
@@ -32,25 +32,25 @@ public class P0308 {
         }
         return -1;
     }
-
+    
     // search element in rotated sorted array with edge case arr[mid] = arr[low] =
     // arr[high]
     public static boolean searchInRotatedSortedArrayEdged(int[] arr, int num) {
         int start = 0;
         int end = arr.length - 1;
-
+        
         while (start <= end) {
             int mid = (start + end) / 2;
-
+            
             if (arr[mid] == num)
                 return true;
-
+            
             if (arr[mid] == arr[start] && arr[start] == arr[end]) {
                 start++;
                 end--;
                 continue;
             }
-
+            
             if (arr[start] <= arr[mid]) { // left part is sorted
                 if (arr[start] <= num && num <= arr[mid]) {
                     end = mid - 1;
@@ -67,23 +67,22 @@ public class P0308 {
         }
         return false;
     }
-
+    
     // find minimum -- PATTA???
     public static int findMin(int[] arr) {
         int low = 0, high = arr.length - 1;
         int ans = Integer.MAX_VALUE;
         while (low <= high) {
             int mid = (low + high) / 2;
-
+            
             if (arr[low] <= arr[high]) {
                 ans = Math.min(ans, arr[low]);
                 break;
             }
-
+            
             if (arr[low] <= arr[mid]) {
                 ans = Math.min(ans, arr[low]);
                 low = mid + 1;
-
             } else {
                 ans = Math.min(ans, arr[mid]);
                 high = mid - 1;
@@ -91,10 +90,10 @@ public class P0308 {
         }
         return ans;
     }
-
-
+    
+    
     //how many number of times the array has been rotated
-
+    
     /**
      * agr smallest element nikaal lenge toh pta chl jaega ki kitna aage bdha h wo
      */
@@ -111,7 +110,7 @@ public class P0308 {
                 }
                 break;
             }
-
+            
             if (arr[low] <= arr[mid]) {
                 if (arr[low] < ans) {
                     index = low;
@@ -128,9 +127,9 @@ public class P0308 {
         }
         return index;
     }
-
+    
     public static void main(String[] args) {
-        int[] arr = {7,6,5,0,1,2,3,4};
+        int[] arr = {7, 6, 5, 0, 1, 2, 3, 4};
         System.out.println(findKRotation(arr));
     }
 }

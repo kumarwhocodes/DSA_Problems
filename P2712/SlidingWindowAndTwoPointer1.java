@@ -1,9 +1,8 @@
 package P2712;
 
-import java.util.HashSet;
-
 public class SlidingWindowAndTwoPointer1 {
     
+    //max consecutive ones after flipping k-0s
     static int maxConsecutiveOnes(int[] arr, int k) {
         int maxLen = 0, left = 0, right = 0, zeros = 0;
         
