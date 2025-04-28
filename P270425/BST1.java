@@ -95,6 +95,10 @@ public class BST1 {
         return floor;
     }
     
+    /**
+     * Insertion in a Binary Search Tree
+     * @return T = O(N) -> Worst case: skewed tree && T = O(log N) -> Best case
+     */
     public static TreeNode insertInBst(TreeNode root, int val) {
         if (root == null) return new TreeNode(val);
         TreeNode curr = root;
