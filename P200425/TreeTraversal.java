@@ -5,28 +5,28 @@ import java.util.function.BiConsumer;
 
 public class TreeTraversal {
     
-    static void preorder(TreeNode root, List<Integer> arr) {
+    public static void preorder(TreeNode root, List<Integer> arr) {
         if (root == null) return;
         arr.add(root.data);
         preorder(root.left, arr);
         preorder(root.right, arr);
     }
     
-    static void inOrder(TreeNode root, List<Integer> arr) {
+    public static void inOrder(TreeNode root, List<Integer> arr) {
         if (root == null) return;
         inOrder(root.left, arr);
         arr.add(root.data);
         inOrder(root.right, arr);
     }
     
-    static void postorder(TreeNode root, List<Integer> arr) {
+    public static void postorder(TreeNode root, List<Integer> arr) {
         if (root == null) return;
         postorder(root.left, arr);
         postorder(root.right, arr);
         arr.add(root.data);
     }
     
-    static List<Integer> traverse(TreeNode root, BiConsumer<TreeNode, List<Integer>> traversalFunction) {
+    public static List<Integer> traverse(TreeNode root, BiConsumer<TreeNode, List<Integer>> traversalFunction) {
         List<Integer> arr = new ArrayList<>();
         traversalFunction.accept(root, arr);
         return arr;

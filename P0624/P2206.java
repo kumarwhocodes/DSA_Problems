@@ -112,7 +112,7 @@ public class P2206 {
         }
     }
 
-    //Function to reverse array
+    //Function to reverseStackUsingRecursion array
     static void reverseArraySpaceOpt(int arr[], int n) {
         int p1 = 0, p2 = n - 1;
         while (p1 < p2) {
@@ -125,7 +125,7 @@ public class P2206 {
         printArray(arr, n);
     }
 
-    //Function to reverse array using recursion
+    //Function to reverseStackUsingRecursion array using recursion
     static void reverseArrayRecursive(int arr[], int start, int end) {
         if (start < end) {
             int tmp = arr[start];
@@ -135,7 +135,7 @@ public class P2206 {
         }
     }
 
-    //Inbuilt function to reverse array
+    //Inbuilt function to reverseStackUsingRecursion array
     static void reverseArrayInBuilt(Integer[] arr) {
         Collections.reverse(Arrays.asList(arr));
         System.out.println(Arrays.toString(arr));

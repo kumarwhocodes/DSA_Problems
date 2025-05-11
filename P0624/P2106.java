@@ -54,7 +54,7 @@ public class P2106 {
         return count;
     }
 
-    //reverse digits - the optimal way
+    //reverseStackUsingRecursion digits - the optimal way
     static int reverse(int num) {
         int reversedNum = 0;
         while (num != 0) {

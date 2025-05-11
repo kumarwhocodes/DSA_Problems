@@ -31,7 +31,7 @@ public class P1206 {
     // in.close();
     // }
 
-    // Array ka reverse
+    // Array ka reverseStackUsingRecursion
     // public static void main(String[] args) {
     // int[] arr = new int[5];
     // Scanner in = new Scanner(System.in);
@@ -53,7 +53,7 @@ public class P1206 {
     // }
 
 
-    //Alternate elements ka reverse
+    //Alternate elements ka reverseStackUsingRecursion
 
     // static void swapInArray(int[] arr, int i, int j) {
     //     int temp = arr[i];

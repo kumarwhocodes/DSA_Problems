@@ -2,7 +2,7 @@ package P270425;
 
 import P200425.TreeNode;
 
-public class BST1 {
+public class BST {
     
     public static boolean searchInBst(TreeNode root, int key) {
         while (root != null) {
