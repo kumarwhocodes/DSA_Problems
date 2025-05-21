@@ -1,7 +1,9 @@
 package Day21;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.List;
 
 public class Strings {
     public static String longestCommonPrefix(String[] strs) {
@@ -54,11 +56,42 @@ public class Strings {
         return true;
     }
     
+    public static String reverseWordsInString(String str) {
+        String[] words = str.trim().split("\\s+");
+        StringBuilder s = new StringBuilder();
+        for (int i = words.length - 1; i >= 0; i--) {
+            s.append(words[i]);
+            s.append(" ");
+        }
+        return s.toString().trim();
+    }
+    
+    public static List<Character> frequencySort(String s) {
+        s = s.trim();
+        HashMap<Character, Integer> frequency = new HashMap<>();
+        for (int i = 0; i < s.length(); i++) {
+            char c = s.charAt(i);
+            frequency.put(c, frequency.getOrDefault(c, 0) + 1);
+        }
+        List<Character> chars = new ArrayList<>(frequency.keySet());            //returns a set of all the keys in the map
+        chars.sort((a, b) -> frequency.get(b) - frequency.get(a));      //comparator
+        
+        List<Character> result = new ArrayList<>();
+        for (char c : chars) {
+            int count = frequency.get(c);
+            for (int i = 0; i < count; i++) {
+                result.add(c);
+            }
+        }
+        return result;
+    }
     
     public static void main(String[] args) {
 //        String[] input = {"flower", "flow", "flight"};
 //        String result = longestCommonPrefix(input);
 //        System.out.println("Longest Common Prefix: " + result);
-        System.out.println(checkIsoMorphicStrings("egg", "add"));
+//        System.out.println(checkIsoMorphicStrings("egg", "add"));
+//        System.out.println(reverseWordsInString("HELLO WORLD!"));
+        System.out.println(frequencySort("tree"));
     }
 }
