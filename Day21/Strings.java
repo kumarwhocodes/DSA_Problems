@@ -73,7 +73,7 @@ public class Strings {
             char c = s.charAt(i);
             frequency.put(c, frequency.getOrDefault(c, 0) + 1);
         }
-        List<Character> chars = new ArrayList<>(frequency.keySet());            //returns a set of all the keys in the map
+        List<Character> chars = new ArrayList<>(frequency.keySet());                        //returns a set of all the keys in the map
         chars.sort((a, b) -> frequency.get(b) - frequency.get(a));      //comparator
         
         List<Character> result = new ArrayList<>();
