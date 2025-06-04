@@ -2,8 +2,8 @@ package Day22;
 
 import Day3.P2706;
 
+import java.util.Arrays;
 import java.util.HashMap;
-import java.util.List;
 
 public class ArrayPractice {
     
@@ -124,7 +124,52 @@ public class ArrayPractice {
         return maxProfit;
     }
     
+    //Search in 2-D Array
+    public static boolean searchIn2DArray(int[][] arr, int rows, int cols, int key) {
+        for (int i = 0; i < rows; i++) {
+            for (int j = 0; j < cols; j++) {
+                if (arr[i][j] == key) return true;
+            }
+        }
+        return false;
+    }
     
+    public static boolean searchInSorted2DArray(int[][] arr, int rows, int cols, int key) {
+        int i = 0, j = cols - 1;                //keeping i at (0) and j at (last column)
+        while (i < rows && j >= 0) {
+            if (arr[i][j] == key) return true;
+            else if (arr[i][j] > key) j--;     // move left
+            else i++;                          // move down
+        }
+        return false;
+    }
+    
+    public static int[] findPeakElementIn2DArray(int[][] arr, int m, int n) {
+        int low = 0, high = n - 1;
+        while (low <= high) {
+            int mid = (low + high) / 2;
+            int row = findRowWhichContainsMaxElement(arr, m, mid);
+            int left = mid - 1 >= 0 ? arr[row][mid - 1] : -1;
+            int right = mid + 1 < n ? arr[row][mid + 1] : -1;
+            if (arr[row][mid] > left && arr[row][mid] > right) {
+                return new int[]{row + 1, mid + 1};
+            } else if (arr[row][mid] < left) high = mid - 1;
+            else low = mid + 1;
+        }
+        return new int[]{-1, -1};
+    }
+    
+    private static int findRowWhichContainsMaxElement(int[][] arr, int rows, int mid) {
+        int max = Integer.MIN_VALUE;
+        int rowIndex = -1;
+        for (int i = 0; i < rows; i++) {
+            if (arr[i][mid] > max) {
+                max = arr[i][mid];
+                rowIndex = i;
+            }
+        }
+        return rowIndex;
+    }
     
     public static void main(String[] args) {
 //        int[] a = {2, 3, 5, 1, 9};
@@ -139,10 +184,18 @@ public class ArrayPractice {
 
 //        int[] a = {2, 2, 1, 1, -2, 3, 2};
 //        System.out.println(maxSubarraySum(a));
+
+//        int[] arr = {7, 1, 5, 3, 6, 4};
+//        int maxPro = stockBuyAndSellOpt(arr);
+//        System.out.println("Max profit is: " + maxPro);
         
-        int[] arr = {7, 1, 5, 3, 6, 4};
-        int maxPro = stockBuyAndSellOpt(arr);
-        System.out.println("Max profit is: " + maxPro);
+        int[][] arr = {
+                {1, 2, 3},
+                {4, 5, 6},
+                {7, 8, 11}
+        };
+//        System.out.println(searchInSorted2DArray(arr, 3, 3, 10));
+        System.out.println("The peak element here is: " + Arrays.toString(findPeakElementIn2DArray(arr, 3, 3)));
     }
     
 }

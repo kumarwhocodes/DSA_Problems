@@ -3,12 +3,12 @@ package Day5;
 public class P2408 {
 
     // Find the row with maximum number of 1's -- BRUTE
-    static int findRowWithMaxOnes(int[][] arr, int n, int m) {
+    static int findRowWithMaxOnes(int[][] arr, int rows, int columns) {
         int count = 0;
-        int currentCount = 0;
         int rowIndex = 0;
-        for(int i=0;i<n;i++){
-            for(int j=0;j<m;j++){
+        for(int i = 0; i< rows; i++){
+            int currentCount = 0;
+            for(int j = 0; j< columns; j++){
                 if (arr[i][j] == 1) {
                     currentCount++;
                 }
@@ -18,7 +18,7 @@ public class P2408 {
                 rowIndex = i;
             }
         }
-        return rowIndex;
+        return rowIndex + 1;
     }
 
     //Find row with maximum number of 1's -- OPTIMAL
@@ -54,7 +54,9 @@ public class P2408 {
     }
 
     public static void main(String[] args) {
-        int[][] arr = { { 1, 0, 0 }, { 1, 1, 1 }, { 0, 0, 0 } };
-        System.out.println(findRowWithMaxOnesOpt(arr, 3, 3));
+        int[][] arr = { { 1, 1, 1 },
+                        { 1, 0, 1 },
+                        { 0, 0, 0 } };
+        System.out.println(findRowWithMaxOnes(arr, 3, 3));
     }
 }

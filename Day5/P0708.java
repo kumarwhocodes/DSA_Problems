@@ -38,12 +38,10 @@ public class P0708 {
         while (low <= high) {
             int mid = (low + high) / 2;
             //mid
-            if ((arr[mid] > arr[mid - 1]) && (arr[mid] > arr[mid + 1]))
+            if ((arr[mid] > arr[mid - 1]) && (arr[mid] > arr[mid + 1]))     //mid is the peak
                 return arr[mid];
-            //for left
-            if (arr[mid] > arr[mid - 1]) low = mid + 1;
-                //for right
-            else high = mid - 1;
+            if (arr[mid] > arr[mid - 1]) low = mid + 1;                     //assuming only 1 peak exists and is on the right side
+            else high = mid - 1;                                            //assuming only 1 peak exists and is on the left side
             
         }
         return -1;
