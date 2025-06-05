@@ -2,6 +2,7 @@ package Day14;
 
 public class String0 {
     
+    //Remove outermost parenthesis
     public static String removeOuterParentheses(String s) {
         StringBuilder ans = new StringBuilder();
         int depth = 0;
@@ -52,14 +53,14 @@ public class String0 {
     }
     
     public static void main(String[] args) {
-//        String input = "(()())(())";
-//        String result = removeOuterParentheses(input);
-//        System.out.println(result);
+        String input = "(()())(())";
+        String result = removeOuterParentheses(input);
+        System.out.println(result);
 
 //        String sentence = "Hello there!";
 //        System.out.println(reverseWords(sentence));
         
-        System.out.println(largeOddNum("5347"));
+//        System.out.println(largeOddNum("5347"));
     }
     
 }

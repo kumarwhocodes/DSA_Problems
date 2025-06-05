@@ -6,6 +6,7 @@ import java.util.HashSet;
 import java.util.List;
 
 public class Strings {
+    
     public static String longestCommonPrefix(String[] strs) {
         if (strs == null || strs.length == 0)
             return "";
@@ -15,12 +16,8 @@ public class Strings {
         
         // Compare the prefix with the rest of the strings
         for (int i = 1; i < strs.length; i++) {
-            // Reduce the prefix until it matches the start of strs[i]
             while (!strs[i].startsWith(prefix)) {
-                // Shorten the prefix from the end
                 prefix = prefix.substring(0, prefix.length() - 1);
-                
-                // If prefix becomes empty, there is no common prefix
                 if (prefix.isEmpty())
                     return "";
             }
