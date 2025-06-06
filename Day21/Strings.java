@@ -26,6 +26,7 @@ public class Strings {
         return prefix;
     }
     
+    //check whether string is iso morphic or not
     public static boolean checkIsoMorphicStrings(String s1, String s2) {
         if (s1.length() != s2.length()) return false;
         if (s1.equals(s2)) return true;
@@ -53,6 +54,7 @@ public class Strings {
         return true;
     }
     
+    //Reverse words in string
     public static String reverseWordsInString(String str) {
         String[] words = str.trim().split("\\s+");
         StringBuilder s = new StringBuilder();
@@ -63,12 +65,12 @@ public class Strings {
         return s.toString().trim();
     }
     
+    //sort characters by frequency
     public static List<Character> frequencySort(String s) {
         s = s.trim();
         HashMap<Character, Integer> frequency = new HashMap<>();
         for (int i = 0; i < s.length(); i++) {
-            char c = s.charAt(i);
-            frequency.put(c, frequency.getOrDefault(c, 0) + 1);
+            frequency.put(s.charAt(i), frequency.getOrDefault(s.charAt(i), 0) + 1);
         }
         List<Character> chars = new ArrayList<>(frequency.keySet());                        //returns a set of all the keys in the map
         chars.sort((a, b) -> frequency.get(b) - frequency.get(a));      //comparator
