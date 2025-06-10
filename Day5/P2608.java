@@ -1,16 +1,16 @@
 package Day5;
 
 //Single LINKED LIST commented class code to avoid build issues
-//class P1910.Node{
+//class Node {
 //    int data;
-//    P1910.Node next;
+//    Node next;
 //
-//    P1910.Node(int data,P1910.Node next){
+//    Node(int data, Node next) {
 //        this.data = data;
 //        this.next = next;
 //    }
 //
-//    P1910.Node(int data){
+//    Node(int data) {
 //        this.data = data;
 //        this.next = null;
 //    }

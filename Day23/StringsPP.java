@@ -128,6 +128,15 @@ public class StringsPP {
         return sum;
     }
     
+    public static int atoi(String s) {
+        if (s.isBlank()) return -1;
+        int num = 0;
+        for (int i = 0; i < s.length(); i++) {
+            int ch = s.charAt(i) - '0';
+            num = num * 10 + ch;
+        }
+        return num;
+    }
     
     public static void main(String[] args) {
 //        System.out.println(isAnagram("anagram", "grabana"));
@@ -136,7 +145,9 @@ public class StringsPP {
 
 //        System.out.println(maxDepthOfParenthesis("(1+(2*3)+((8)/4))+1"));
         
-        System.out.println(romanToIntegerThroughMap("MCMXCIV"));
+//        System.out.println(romanToIntegerThroughMap("MCMXCIV"));
+        
+        System.out.println(atoi("112"));
     }
     
 }
