@@ -3,7 +3,7 @@ package Day7;
 import java.util.HashMap;
 
 public class P0410 {
-
+    
     //Length of loop in LL - Brute - TC = O(N) - SC = O(N)
     static Integer findLengthOfLoopBrute(Node head) {
         HashMap<Node, Integer> mpp = new HashMap<>();
@@ -20,7 +20,7 @@ public class P0410 {
         }
         return 0;
     }
-
+    
     //Length of Loop in LL - Optimal - Tortoise & Hare - TC = O(N) - SC = O(1)
     static Integer findLengthOfLoopOpt(Node head) {
         Node slow = head;
@@ -39,18 +39,17 @@ public class P0410 {
         }
         return 0;
     }
-
+    
     //Detect a Palindrome in LL - Brute -- O(N^2)
     static boolean checkPalindromeLLBrute(Node head) {
         if (head == null) {
             return true;
         }
         Node start = head;
-        Node temp = head;
-        while (temp.next != null) {
-            temp = temp.next;
+        Node end = head;
+        while (end.next != null) {
+            end = end.next;
         }
-        Node end = temp;
         while (start.prev != end && start != end) {
             if (start.data != end.data) {
                 return false;
@@ -61,7 +60,7 @@ public class P0410 {
         }
         return true;
     }
-
+    
     //Detect a Palindrome in LL - Optimal -- O(N)
     static boolean checkPalindromeLLOpt(Node head) {
         if (head == null || head.next == null) return true;
@@ -85,16 +84,15 @@ public class P0410 {
         P0210.reverseIterativeLL(newHead);
         return true;
     }
-
     
-
+    
     public static void main(String[] args) {
         Node head = new Node(1);
         head.next = new Node(5);
         head.next.next = new Node(2);
         head.next.next.next = new Node(5);
         head.next.next.next.next = new Node(1);
-
+        
         if (checkPalindromeLLOpt(head)) {
             System.out.println("The linked list is a palindrome.");
         } else {
@@ -122,5 +120,5 @@ public class P0410 {
 //            System.out.println("No loop found in the linked list.");
 //        }
     }
-
+    
 }
