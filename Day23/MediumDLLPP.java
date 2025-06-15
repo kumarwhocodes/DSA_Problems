@@ -104,12 +104,14 @@ public class MediumDLLPP {
         head = insertNodeInDLL(head, 3, 3);
         head = insertNodeInDLL(head, 2, 4);
         head = insertNodeInDLL(head, 1, 5);
-        
-        
+
+        System.out.println("Original Linked List:");
         printDLL(head);
+
         System.out.println("Middle element: " + middleOfLinkedList(head).data);
         System.out.println("Loop detected: " + detectLoopInLL(head));
         System.out.println("Is Palindrome: " + isLinkedListAPalindrome(head));
+        
         
         //Detect loop driver code
 //        Node head = new Node(1);
