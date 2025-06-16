@@ -2,97 +2,139 @@ package Day23;
 
 import Day7.Node;
 
+import static Day23.DLLPP.insertNodeInDLL;
 import static Day23.DLLPP.printDLL;
 
 public class MediumLLPP {
     
-    public static Node segregateOddAndEvenNodesInLL(Node head) {
-        Node evenHead = null, evenTail = null;
-        Node oddHead = null, oddTail = null;
-        Node curr = head;
-        
-        while (curr != null) {
-            if (curr.data % 2 == 0) {
-                if (evenHead == null) {
-                    evenHead = evenTail = new Node(curr.data);
-                } else {
-                    evenTail.next = new Node(curr.data);
-                    evenTail = evenTail.next;
-                }
-            } else {
-                if (oddHead == null) {
-                    oddHead = oddTail = new Node(curr.data);
-                } else {
-                    oddTail.next = new Node(curr.data);
-                    oddTail = oddTail.next;
-                }
-            }
-            curr = curr.next;
+    public static Node middleOfLinkedList(Node head) {
+        if (head == null || head.next == null) {
+            return head;
         }
-        
-        if (evenTail != null) {
-            evenTail.next = oddHead;
-            return evenHead;
-        }
-        return oddHead;
-    }
-    
-    public static Node removeNthNodeFromBackInLL(Node head, int posFromBack) {
-        if (head == null) return null;
+        Node slow = head;
         Node fast = head;
-        for (int i = 0; i < posFromBack; i++) {
-            fast = fast.next;
-        }
-        Node slow = head;
-        if (fast == null) return head.next;
-        while (fast.next != null) {
-            slow = slow.next;
-            fast = fast.next;
-        }
-        slow.next = slow.next.next;
-        return head;
-    }
-    
-    public static Node deleteMiddleNodeInLL(Node head) {
-        if (head == null || head.next == null) return null;
-        Node fast = head.next.next;         //moving fast ahead two nodes for slow to reach one node before the middle
-        Node slow = head;
         while (fast != null && fast.next != null) {
             slow = slow.next;
             fast = fast.next.next;
         }
-        slow.next = slow.next.next;
-        return head;
+        return slow;
     }
     
-    public static Node createLinkedList(int[] arr) {
-        Node head = null, tail = null;
-        for (int num : arr) {
-            if (head == null) {
-                head = tail = new Node(num);
-            } else {
-                tail.next = new Node(num);
-                tail = tail.next;
+    public static boolean detectLoopInLL(Node head) {
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) return true;
+        }
+        return false;
+    }
+    
+    public static Integer findStartingElementOfTheLoopInLL(Node head) {
+        Node slow = head;
+        Node fast = head;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                slow = head;
+                while (slow != fast) {
+                    slow = slow.next;
+                    fast = fast.next;
+                }
+                return slow.data;
             }
         }
-        return head;
+        return null;
+    }
+    
+    public static Integer findLengthOfLoopInLL(Node head) {
+        Node slow = head;
+        Node fast = head;
+        int count = 0;
+        while (fast != null && fast.next != null) {
+            slow = slow.next;
+            fast = fast.next.next;
+            if (slow == fast) {
+                do {
+                    count++;
+                    slow = slow.next;
+                } while (slow != fast);
+                return count;
+            }
+        }
+        return 0;
+    }
+    
+    public static Node reverseSingleLL(Node head) {
+        Node temp = head;
+        Node prev = null;
+        
+        while (temp != null) {
+            Node front = temp.next;
+            temp.next = prev;
+            prev = temp;
+            temp = front;
+        }
+        return prev;
+    }
+    
+    public static boolean isLinkedListAPalindrome(Node head) {
+        Node first = head;
+        Node middle = middleOfLinkedList(head);
+        Node second = reverseSingleLL(middle);
+        while (second != null) {
+            if (first.data != second.data) {
+                reverseSingleLL(second);
+                return false;
+            }
+            first = first.next;
+            second = second.next;
+        }
+        reverseSingleLL(head);
+        return true;
     }
     
     public static void main(String[] args) {
-        int[] arr = {1, 2, 3, 4, 5, 6, 7};
-        Node head = createLinkedList(arr);
+        Node head = null;
+        head = insertNodeInDLL(head, 1, 0);
+        head = insertNodeInDLL(head, 2, 1);
+        head = insertNodeInDLL(head, 3, 2);
+        head = insertNodeInDLL(head, 3, 3);
+        head = insertNodeInDLL(head, 2, 4);
+        head = insertNodeInDLL(head, 1, 5);
+
         System.out.println("Original Linked List:");
         printDLL(head);
 
-//        Node segregatedHead = segregateOddAndEvenNodesInLL(head);
-//        System.out.println("Segregated Linked List (Even followed by Odd):");
-//        printDLL(segregatedHead);
-
-//        head = removeNthNodeFromBackInLL(head, 7);
-//        printDLL(head);
+        System.out.println("Middle element: " + middleOfLinkedList(head).data);
+        System.out.println("Loop detected: " + detectLoopInLL(head));
+        System.out.println("Is Palindrome: " + isLinkedListAPalindrome(head));
         
-        head = deleteMiddleNodeInLL(head);
-        printDLL(head);
+        
+        //Detect loop driver code
+//        Node head = new Node(1);
+//        Node second = new Node(2);
+//        Node third = new Node(3);
+//        Node fourth = new Node(4);
+//        Node fifth = new Node(5);
+//
+//        head.next = second;
+//        second.next = third;
+//        third.next = fourth;
+//        fourth.next = fifth;
+//        // Create a loop
+//        fifth.next = third;
+//
+//        if (detectLoopInLL(head)) {
+//            System.out.println("Loop detected in the linked list.");
+//            System.out.println("Loop started at: " + findStartingElementOfTheLoopInLL(head));
+//            System.out.println("Length of loop: " + findLengthOfLoopInLL(head));
+//        } else {
+//            System.out.println("No loop detected in the linked list.");
+//        }
+        
+        
     }
-    
 }
