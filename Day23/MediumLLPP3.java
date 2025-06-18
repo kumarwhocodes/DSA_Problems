@@ -56,7 +56,7 @@ public class MediumLLPP3 {
     
     //Leetcode question no.: 2
     //Add two numbers given in two linked lists and are in reverse order
-    public static Node addTwoLL(Node head1, Node head2) {
+    public static Node addTwoLLInReverse(Node head1, Node head2) {
         Node sumLL = new Node(-1);
         Node temp = sumLL;
         int carry = 0;
@@ -150,6 +150,37 @@ public class MediumLLPP3 {
         return reverseSingleLL(reversedHead);
     }
     
+    public static Node addTwoLL(Node head1, Node head2) {
+        if (head1 == null) return head2;
+        if (head2 == null) return head1;
+        
+        Node h1 = reverseSingleLL(head1);
+        Node h2 = reverseSingleLL(head2);
+        int carry = 0;
+        
+        Node dummy = new Node(-1);
+        Node temp = dummy;
+        
+        while (h1 != null || h2 != null || carry != 0) {
+            int sum = carry;
+            if (h1 != null) {
+                sum += h1.data;
+                h1 = h1.next;
+            }
+            if (h2 != null) {
+                sum += h2.data;
+                h2 = h2.next;
+            }
+            
+            temp.next = new Node(sum % 10);
+            carry = sum / 10;
+            temp = temp.next;
+        }
+        
+        return reverseSingleLL(dummy.next);
+    }
+    
+    
     public static void main(String[] args) {
 //        int[] arr = {5, 4, 3, 2, 1};
 //        Node head = createLinkedList(arr);
@@ -179,11 +210,18 @@ public class MediumLLPP3 {
 //        temp.next = common;
 //        Node intersection = findIntersectionNodeOfTwoLL(head1, head2);
 //        System.out.println("Intersection Node: " + (intersection != null ? intersection.data : "null"));
+
+//        int[] arr = {9, 9};
+//        Node head = createLinkedList(arr);
+//        head = addOneToLLBrute(head);
+//        printSingleLL(head);
         
-        int[] arr = {9, 9};
+        int[] arr = {1, 0, 6};
+        int[] arr2 = {1, 0, 8};
         Node head = createLinkedList(arr);
-        head = addOneToLLBrute(head);
-        printSingleLL(head);
+        Node head2 = createLinkedList(arr2);
+        Node sum = addTwoLL(head, head2);
+        printSingleLL(sum);
     }
     
 }
