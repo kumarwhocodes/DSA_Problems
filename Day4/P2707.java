@@ -7,8 +7,9 @@ import java.util.Arrays;
 public class P2707 {
     public static void main(String[] args) {
         int[] arr = {55, 66, 33, 11, 77};
-        rotateRight(arr, 3);
-        System.out.println(Arrays.toString(arr));
+//        rotateRight(arr, 3);
+//        System.out.println(Arrays.toString(arr));
+        System.out.println(findSecondLL(arr));
     }
     
     // find the largest element in array
@@ -44,13 +45,19 @@ public class P2707 {
         return second_small;
     }
     
+    static int findSecondLL(int[] arr) {
+        if (arr == null || arr.length < 2) return -1;
+        Arrays.sort(arr);
+        return arr[arr.length - 2];
+    }
+    
     static private int findSecondLargest(int[] arr, int n) {
-        if (n < 2)
-            return -1;
+        if (n < 2) return -1;
+        
         int large = Integer.MIN_VALUE;
         int second_large = Integer.MIN_VALUE;
-        int i;
-        for (i = 0; i < n; i++) {
+        
+        for (int i = 0; i < n; i++) {
             if (arr[i] > large) {
                 second_large = large;
                 large = arr[i];
@@ -87,6 +94,7 @@ public class P2707 {
     // rotate right by n elements - PATTA???
     static void rotateRight(int[] arr, int n) {
         int len = arr.length;
+        if (len <= 1) return;
         n = n % len;
         
         for (int i = 0; i < n; i++) {

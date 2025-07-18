@@ -125,14 +125,14 @@ public class P3007 {
      */
     static int findUniqueNumberInArrayOpt(int[] arr) {
         int xor = 0;
-        for (int j : arr) {
-            xor ^= j;
+        for (int i : arr) {
+            xor ^= i;
         }
         return xor;
     }
     
     public static void main(String[] args) {
-        int[] a = {1, 7, 0, 3, 1, 1, 1, 1, 0};
+        int[] a = {1, 1, 0, 3, 1, 1, 1, 1, 0};
         int num = findUniqueNumberInArrayBetter(a);
         System.out.println(num);
     }

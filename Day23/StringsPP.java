@@ -138,16 +138,29 @@ public class StringsPP {
         return num;
     }
     
+    public static String itoa(int num) {
+        StringBuilder str = new StringBuilder();
+        if (num == 0) return "0";
+        while (num != 0) {
+            int ch = num % 10;
+            num = num / 10;
+            str.append(ch);
+        }
+        return str.reverse().toString();
+    }
+    
     public static void main(String[] args) {
 //        System.out.println(isAnagram("anagram", "grabana"));
 
 //        System.out.println(rotateString("abcde", "cdeab"));
 
 //        System.out.println(maxDepthOfParenthesis("(1+(2*3)+((8)/4))+1"));
-        
+
 //        System.out.println(romanToIntegerThroughMap("MCMXCIV"));
+
+//        System.out.println(atoi("112"));
         
-        System.out.println(atoi("112"));
+        System.out.println(itoa(0));
     }
     
 }

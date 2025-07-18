@@ -65,7 +65,7 @@ public class MediumDLLPP {
         while (temp != null) {
             if (temp != head) {
                 if (temp.prev.data == temp.data) {
-                    temp.next.prev = temp.prev;
+                    temp.next.prev = temp.prev; 
                     temp.prev.next = temp.next;
                 }
             }

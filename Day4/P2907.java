@@ -3,6 +3,7 @@ package Day4;
 import Day3.P2706;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class P2907 {
     
@@ -35,9 +36,10 @@ public class P2907 {
             }
         }
         
-        while (j < arr.length) {
+        while (count != 0) {
             arr[j] = 0;
             j++;
+            count--;
         }
         return ans;
     }
@@ -86,6 +88,8 @@ public class P2907 {
     public static void main(String[] args) {
         int[] arr = {1, 0, 5, 3, 6, 0, 0, 0, 9, 7, 6};
 //        int[] arr1 = moveZeroToEndBrute(arr);
-        System.out.println(searchIndex(arr, 1));
+//        System.out.println(searchIndex(arr, 1));
+        
+        System.out.println(Arrays.toString(moveZeroesToEndOpt(arr)));
     }
 }
