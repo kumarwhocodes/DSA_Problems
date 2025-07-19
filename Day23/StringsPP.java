@@ -149,6 +149,45 @@ public class StringsPP {
         return str.reverse().toString();
     }
     
+    public static int countAllSubstrings(String str) {
+        if (str == null || str.isEmpty()) {
+            return 0;
+        }
+        int n = str.length();
+        return n * (n + 1) / 2;
+    }
+    
+    private static boolean isVowel(char ch) {
+        char lowerCh = Character.toLowerCase(ch);
+        return lowerCh == 'a' || lowerCh == 'e' || lowerCh == 'i' || lowerCh == 'o' || lowerCh == 'u';
+    }
+    
+    public static long countSubstringsWithoutVowels(String str) {
+        if (str == null || str.isEmpty()) return 0;
+        
+        long totalCount = 0;
+        long currentConsonantCount = 0;
+        
+        for (int i = 0; i < str.length(); i++) {
+            char currentChar = str.charAt(i);
+            
+            if (!isVowel(currentChar)) {
+                // If the character is a consonant, increment the current block length.
+                currentConsonantCount++;
+            } else {
+                // If it's a vowel, calculate substrings from the preceding consonant block.
+                totalCount += (currentConsonantCount * (currentConsonantCount + 1)) / 2;
+                // Reset the consonant count.
+                currentConsonantCount = 0;
+            }
+        }
+        
+        // Add the count from the last block of consonants if the string doesn't end with a vowel.
+        totalCount += (currentConsonantCount * (currentConsonantCount + 1)) / 2;
+        
+        return totalCount;
+    }
+    
     public static void main(String[] args) {
 //        System.out.println(isAnagram("anagram", "grabana"));
 
@@ -160,7 +199,10 @@ public class StringsPP {
 
 //        System.out.println(atoi("112"));
         
-        System.out.println(itoa(0));
+//        System.out.println(itoa(0));
+        
+        System.out.println(countAllSubstrings("banana"));
+        System.out.println(countSubstringsWithoutVowels("apple"));
     }
     
 }
