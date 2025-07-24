@@ -61,6 +61,11 @@ public class BitManipulatePP {
         return cnt;
     }
     
+    public static void isOddOrEven(int n) {
+        if ((n & 1) == 1) System.out.println("Odd");
+        else System.out.println("Even");
+    }
+    
     public static void main(String[] args) {
 //        swapTwoNums(2, 3);
 
@@ -75,10 +80,12 @@ public class BitManipulatePP {
 //        System.out.println(clearRightMostSetBit(16));
 
 //        System.out.println(isPowerOf2(15));
-        
+
 //        System.out.println(countSetBits(13));
 
 //        System.out.println(countSetBitsOpt(13));
+        
+        isOddOrEven(11);
     }
     
 }
