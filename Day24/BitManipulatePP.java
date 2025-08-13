@@ -4,8 +4,8 @@ public class BitManipulatePP {
     
     public static void swapTwoNums(int a, int b) {
         a = a ^ b;
-        b = a ^ b;
-        a = a ^ b;
+        b = a ^ b;      //  a ^ b ^ b
+        a = a ^ b;      // a ^ b ^ a
         System.out.println("A: " + a);
         System.out.println("B: " + b);
     }
@@ -71,7 +71,7 @@ public class BitManipulatePP {
 
 //        System.out.println(checkIthBitIsSet(13, 2));
 
-//        System.out.println(setIthBit(9, 2));
+        System.out.println(setIthBit(9, 2));
 
 //        System.out.println(clearIthBit(13, 2));
 
@@ -85,7 +85,7 @@ public class BitManipulatePP {
 
 //        System.out.println(countSetBitsOpt(13));
         
-        isOddOrEven(11);
+//        isOddOrEven(11);
     }
     
 }
